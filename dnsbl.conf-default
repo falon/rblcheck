@@ -1,0 +1,11 @@
+[lists]
+list[]=zen.dnsbl*4
+list[]=bl.spamcop.net*1
+list[]=psbl.surriel.com*1
+list[]=bl.score.senderscore.com*1
+list[]='hostkarma.junkemailfilter.com=127.0.0.[2;4]*1'
+list[]='list.dnswl.org=127.[0..255].[0..255].[3..254]*-2'
+
+[threshold]
+bl=2
+wl=-2
