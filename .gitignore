@@ -1,4 +1,4 @@
 vendor/
 *.conf
 *.lock
-.gitignore
+lookup.php
