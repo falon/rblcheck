@@ -1,6 +1,7 @@
 {
     "name": "falon/rblcheck",
     "description": "Check if IP has blocked with postscreen DNSBL",
+    "license": "Apache-2.0",
     "require": {
         "php": "^7.0",
         "jbboehr/dnsbl": "0.1.*"
