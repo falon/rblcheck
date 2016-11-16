@@ -1,4 +1,3 @@
 vendor/
 *.conf
-*.lock
 lookup.php
