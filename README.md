@@ -24,9 +24,9 @@ In this case the postscreen scores are ignored and your IPs are simply checked a
 - Move mySMTP.conf-default in mySMTP.conf.
   - insert here your SMTP servers IPs.
 - Move email.conf-default in email.conf.
-  - customize the alert email you receive if some of your SMTP server is blocklisted.
+  - customize the alert email you receive if some of your SMTP server are blocklisted.
 - Schedule computeMySMTP.php
-  - You can configure a systemd service/times as
+  - You can configure a systemd service/timers as
 	`/usr/lib/systemd/system/rblcheck.service`:
 	```
 	### SMTP Servers RBL Check ###
