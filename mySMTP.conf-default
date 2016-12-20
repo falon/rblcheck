@@ -1,0 +1,4 @@
+# List of IP to check against RBL
+ip[] = 8.8.8.8
+ip[] = 9.9.9.9
+ip[] = 211.211.211.21

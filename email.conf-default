@@ -1,0 +1,13 @@
+/* Warning Emails */
+['mail']
+; comment or empty 'to' if you don't want send mail.
+to = sysadmin@example.com
+mailfrom = '<>'
+from = Postmaster <postmaster@example.com>
+replyto = admin@example.com
+subject = 'Your servers are blocklisted!'
+prio = "high"	; "low" / "normal" / "high" or unset
+
+['others']
+; This link is a text shown in alert email which is sent when an IP is blocklisted.
+link = http://server.example.com/rblcheck/lookResult.php

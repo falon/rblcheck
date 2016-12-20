@@ -2,7 +2,7 @@
 require_once('function.php');
 require_once('linkify.php');
 $pslist=parse_ini_file('dnsbl.conf', TRUE);
-$items=readlist($pslist['lists']['list']);
+$items=readList($pslist['lists']['list']);
 $ip = $_POST['ip'];
 $result = checkList($ip, $items);
 

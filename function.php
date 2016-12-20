@@ -74,13 +74,16 @@ function readList($list) {
 }
 
 
-function checkList($ip, $list) {
+function update(&$array,$value, $score) {
+/* Used only in checkList */
+	$array['values'][] = $value;
+	$array['scores'][] = $score;
+	return TRUE;
+}
 
-	function update(&$array,$value, $score) {
-		$array['values'][] = $value;
-		$array['scores'][] = $score;
-		return TRUE;
-	}
+
+
+function checkList($ip, $list, &$alarm=FALSE) {
 
 	$return=array();
 	if ( !filter_var($ip, FILTER_VALIDATE_IP, array('flags'=> FILTER_FLAG_IPV4)) )
@@ -90,6 +93,7 @@ function checkList($ip, $list) {
 	$dnsbl = new \DNSBL\DNSBL(array(
 		'blacklists' => array_column($list, 'name')
 	));
+	$alarm = FALSE; /* Will be TRUE if ANY is blocklisted somewhere */
 	if ( $dnsbl->isListed($ip, TRUE) )  {
 		$return['score'] = 0;
    		$result = $dnsbl->getDetails($ip, TRUE);
@@ -106,9 +110,12 @@ function checkList($ip, $list) {
 								$update = update($return["$blname"],$this['ip'],$list[$key]['score']);
 						}
 					}
-					if ( $update AND isset($this['txt']) ) { /* The reason and the name */
+					if ( $update ) { /* The reason and the name */
+						$return["$blname"]['name'] = $list[$key]['name'];
+						if  ( (!$alarm) AND ($list[$key]['score']>0) )
+							$alarm = TRUE;
+						if ( isset($this['txt']) )
 							$return["$blname"]['reason'] = $this['txt'];
-							$return["$blname"]['name'] = $list[$key]['name'];
 					}
 				}
 				if ( $update ) {
