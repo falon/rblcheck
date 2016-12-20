@@ -38,7 +38,7 @@ getenv('REMOTE_ADDR');
 </table>
 </form>
 <div id="List" style="clear:left;"></div>
-<p><a href="lookResult.php" target="_blank">Check if your SMTP servers are fine</a>.</p>
+<p style="text-align: right; margin:0"><a href="lookResult.php" target="_blank">Check if your SMTP servers are fine</a>.</p>
 <h6>Postscreen DNSBL checker. Postscreen is a module of <a href="http://www.postfix.org" target="_blank">Postfix</a>. HTML5 browser needed. Ver. <?php echo version(); ?></h6>
 </body>
 </html>
