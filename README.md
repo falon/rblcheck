@@ -52,6 +52,7 @@ In this case the postscreen scores are ignored and your IPs are simply checked a
 	
 	[Timer]
 	OnCalendar=daily
+	RandomizedDelaySec = 7200
 	
 	[Install]
 	WantedBy=multi-user.target
