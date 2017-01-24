@@ -5,13 +5,16 @@ require_once('function.php');
 $pslist=parse_ini_file('dnsbl.conf', TRUE);
 $items=readList($pslist['lists']['list']);
 $ips = parse_ini_file('mySMTP.conf');
-foreach ( $ips['ip'] as $ip )
+$send = FALSE;
+foreach ( $ips['ip'] as $ip ) {
 	$result["$ip"] = checkList($ip, $items, $alert);
+	if ( $alert )	$send = TRUE;
+}
 file_put_contents(__DIR__.'/result.json',json_encode($result));
 
 syslog (LOG_INFO, "The check for your SMTP servers has been written.");
 
-if ( $alert ) {
+if ( $send ) {
 	/* At least one IP is listed. I send a notification mail */
 	$opt = parse_ini_file('email.conf', TRUE);
 	syslog (LOG_EMERG, "At least one of your IP is blocklisted. See urgently at last report {$opt['others']['link']}");
