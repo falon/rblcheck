@@ -1,13 +1,7 @@
 # rblcheck
 Check if IP has blocked with postscreen DNSBL.
 
-- Install via composer
-```
-    "require": {
-        "php": "^7.0",
-        "falon/rblcheck"
-    }
-```
+- PHP 7 required (tested)
 - Move style.css and ajaxsbmt.js in DOCUMENT_ROOT/include dir.
 - Move dnsbl.conf-default in dnsbl.conf.
 - Edit dnsbl.conf
