@@ -3,6 +3,7 @@ Check if IP has blocked with postscreen DNSBL.
 
 - PHP 7 required (tested)
 - Move style.css and ajaxsbmt.js in DOCUMENT_ROOT/include dir.
+- `composer require jbboehr/dnsbl` from root rblcheck folder
 - Move dnsbl.conf-default in dnsbl.conf.
 - Edit dnsbl.conf
   - inserting in [lists] the <b><a href="http://www.postfix.org/postconf.5.html#postscreen_dnsbl_sites">postscreen_dnsbl_sites</a></b>, using the same syntax present in main.cf.
