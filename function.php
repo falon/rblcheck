@@ -101,21 +101,21 @@ function checkList($ip, $list, &$alarm=FALSE) {
 			$keys=array_keys(array_column($list,'name'),$blname);
 			foreach ($keys as $key) {
 				$update = FALSE;
-				foreach ( $detail as $this ) {
-					if ( isset($this['ip']) ) { /* Is listed with value $this['ip']! */
+				foreach ( $detail as $thisd ) {
+					if ( isset($thisd['ip']) ) { /* Is listed with value $thisd['ip']! */
 						if ( empty($list[$key]['value']) ) 
-							$update = update($return["$blname"],$this['ip'],$list[$key]['score']);
+							$update = update($return["$blname"],$thisd['ip'],$list[$key]['score']);
 						else {
-							if (ipInRange($list[$key]['value'],$this['ip']))
-								$update = update($return["$blname"],$this['ip'],$list[$key]['score']);
+							if (ipInRange($list[$key]['value'],$thisd['ip']))
+								$update = update($return["$blname"],$thisd['ip'],$list[$key]['score']);
 						}
 					}
 					if ( $update ) { /* The reason and the name */
 						$return["$blname"]['name'] = $list[$key]['name'];
 						if  ( (!$alarm) AND ($list[$key]['score']>0) )
 							$alarm = TRUE;
-						if ( isset($this['txt']) )
-							$return["$blname"]['reason'] = $this['txt'];
+						if ( isset($thisd['txt']) )
+							$return["$blname"]['reason'] = $thisd['txt'];
 					}
 				}
 				if ( $update ) {
