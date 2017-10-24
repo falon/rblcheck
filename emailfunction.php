@@ -21,7 +21,7 @@ function emailSent ($param, $message, &$error) {
                 "Reply-To: {$param['replyto']}\r\n".
                 "Importance: {$param['prio']}\r\n".
                 "MIME-Version:1.0\r\n".
-                "Message-ID: <$uniqid@".$_SERVER['HOSTNAME'].">\r\n".
+                "Message-ID: <$uniqid@".gethostname().">\r\n".
                 "Date: $today\r\n".
                 "Content-Type: text/plain; charset=utf-8\r\n".
                 "Content-Transfer-Encoding: 7bit\r\n".
